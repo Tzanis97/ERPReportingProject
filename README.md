@@ -1,4 +1,4 @@
-# Navios ERP Reporting Automation
+# ERP Reporting Automation
 
 This project simulates supporting on ERP systems in a maritime environment.  
 It demonstrates how to:
