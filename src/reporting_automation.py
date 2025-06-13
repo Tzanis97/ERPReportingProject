@@ -9,65 +9,22 @@ conn = pyodbc.connect(
     "Trusted_Connection=yes;"
 )
 
-# Ποια πλοία έκαναν τα περισσότερα ταξίδια το 2024
-query1 = """SELECT 
-    s.name AS ShipName,
-    COUNT(v.voyage_id) AS VoyageCount
-FROM Voyages v
-JOIN Ships s ON v.ship_id = s.ship_id
-WHERE YEAR(v.departure_date) = 2024
-GROUP BY s.name
-ORDER BY VoyageCount DESC;
-"""
-
-# Μέση διάρκεια ταξιδιού ανά πλοίο (σε μέρες)
-query2 = """SELECT 
-    v.voyage_id,
-    s.name AS ShipName,
-    dp.name AS DeparturePort,
-    ap.name AS ArrivalPort,
-    v.departure_date,
-    v.arrival_date,
-    DATEDIFF(DAY, v.departure_date, v.arrival_date) AS DurationDays
-FROM Voyages v
-JOIN Ships s ON v.ship_id = s.ship_id
-JOIN Ports dp ON v.departure_port_id = dp.port_id
-JOIN Ports ap ON v.arrival_port_id = ap.port_id
-ORDER BY v.departure_date;
-"""
-
-# Ποια ήταν τα πιο συχνά λιμάνια άφιξης
-query3 = """SELECT 
-    p.name AS ArrivalPort,
-    COUNT(*) AS Arrivals
-FROM Voyages v
-JOIN Ports p ON v.arrival_port_id = p.port_id
-GROUP BY p.name
-ORDER BY Arrivals DESC;
-"""
-
-# Λίστα όλων των ταξιδιών με πλήρη στοιχεία
-query4 = """SELECT 
-    v.voyage_id,
-    s.name AS ShipName,
-    dp.name AS DeparturePort,
-    ap.name AS ArrivalPort,
-    v.departure_date,
-    v.arrival_date,
-    DATEDIFF(DAY, v.departure_date, v.arrival_date) AS DurationDays
-FROM Voyages v
-JOIN Ships s ON v.ship_id = s.ship_id
-JOIN Ports dp ON v.departure_port_id = dp.port_id
-JOIN Ports ap ON v.arrival_port_id = ap.port_id
-ORDER BY v.departure_date;
-"""
-
 #Εκτελεση και αποθηκευση αποτελεσματων 
-df1 = pd.read_sql(query1,conn)
-df2 = pd.read_sql(query2,conn)
-df3 = pd.read_sql(query3,conn)
-df4 = pd.read_sql(query4,conn)
+with open("sql\sql_server\most_traveled_ships_2024.sql",'r') as file:
+    query = file.read()
+    df1 = pd.read_sql(query,conn)
 
+with open("sql\sql_server\most_traveled_ships_2024.sql",'r') as file:
+    query = file.read()
+    df2 = pd.read_sql(query,conn)
+    
+with open("sql\sql_server\most_traveled_ships_2024.sql",'r') as file:
+    query = file.read()
+    df3 = pd.read_sql(query,conn)
+
+with open("sql\sql_server\most_traveled_ships_2024.sql",'r') as file:
+    query = file.read()
+    df4 = pd.read_sql(query,conn)
 
 #Export των Dataframes σε Excelq
 with pd.ExcelWriter("shipping_report.xlsx", engine="openpyxl") as writer: 
