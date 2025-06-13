@@ -50,9 +50,7 @@ Similar demonstration as before:
 1. Install dependencies:
    ```bash
    pip install -r requirements.txt
-
-2. Configure SQL connection in [reporting_automation.py](src/reporting_automation.py)
-
-3. Run script :
+   
+2. Run script :
    ```bash
    python src/reporting_automation.py
