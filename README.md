@@ -15,7 +15,7 @@ It demonstrates how to:
 
 - `src/reporting_automation_csv.py` – Python scripts for extraction, filtering, pivoting, exporting
 - `sql/csv` – Queries used for data extraction
-- `reports/` – Generated reports (Excel)
+- `reports/csv` – Generated reports (Excel)
 - `requirements.txt` – Python dependencies
 
 ## How to Run
@@ -42,7 +42,7 @@ Similar demonstration as before:
 
 - `src/reporting_automation.py` – Python scripts for extraction, filtering, pivoting, exporting
 - `sql/sql_server` – Queries used for data extraction
-- `reports/` – Generated reports (Excel)
+- `reports/sql_server` – Generated reports (Excel)
 - `requirements.txt` – Python dependencies
 
 ## How to Run
