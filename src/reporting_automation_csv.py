@@ -39,11 +39,11 @@ pivot3 = df3.pivot_table(
 )
 
 #Αποθηκευση αποτελεσματων
-with pd.ExcelWriter("reports/avg_ship_travel_time_per_month.xlsx",engine="openpyxl") as writer: 
+with pd.ExcelWriter("reports/csv/avg_ship_travel_time_per_month.xlsx",engine="openpyxl") as writer: 
     pivot1.to_excel(writer,sheet_name="AvgTravelTime x Month")
 
-with pd.ExcelWriter("reports/ship_revenue_per_ArrivalCountry.xlsx",engine="openpyxl") as writer: 
+with pd.ExcelWriter("reports/csv/ship_revenue_per_ArrivalCountry.xlsx",engine="openpyxl") as writer: 
     pivot2.to_excel(writer,sheet_name="ShipRevenue x Country")
     
-with pd.ExcelWriter("reports/ship_profit_comparison.xlsx",engine="openpyxl") as writer: 
+with pd.ExcelWriter("reports/csv/ship_profit_comparison.xlsx",engine="openpyxl") as writer: 
     pivot3.to_excel(writer,sheet_name="Profit Analysis")
